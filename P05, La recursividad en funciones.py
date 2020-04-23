@@ -2,7 +2,7 @@
 # problema es que puede ejecutar bucles infinitos ya que no para de llamarse por lo cual su punto mas importante es la condicion de
 # parada. Es un codigo original y elegante a nivel de sintaxis pero muy poco eficiente lastrando asi su utilidad.
 
-# 1er ejemplo:
+# 1er ejemplo: Retrocontador
 def retrocontador (entrada):
      print ("{},".format(entrada), end = "")
      
@@ -13,3 +13,12 @@ def retrocontador (entrada):
          retrocontador (entrada - 1) # ... vuelve a ejecutarte restandote el valor. Cuando llegue a 0 parará de ejecutarse
         
 retrocontador (10)
+
+# 2do ejemplo: Sumatorio recursivo
+
+def sumatorio (entrada):
+    if entrada > 0:
+        return entrada + sumatorio (entrada - 1)
+    else:
+        return 0
+print("\n",sumatorio(4))
