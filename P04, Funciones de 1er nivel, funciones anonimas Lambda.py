@@ -43,15 +43,20 @@ print (list(lista_dobles_clasicc))
 # Operador reduce
 
 # Igual trabajara uno a uno sobre todos los valores de la lista convirtiendolos al final en un unico valor. El reduce hay que importarlo
-# desde la libreria functools
+# desde la libreria functools, este operador problemas provocando errores matematicos en los resultados esperados
 
 lista = [1, 2, -1, 15, 9]
 
-sumatorio = reduce(lambda x, y: x + y, lista) # En este lambda el 1er parametro funciona como variable acumuladora. 0+1=1; 1+2=3; 3-1=2; 2+15=17; 17+9=26
-print (sumatorio)
+sumatorio = reduce(lambda x, y: x + y, lista) # En este lambda el 1er parametro ('x') funciona como variable acumuladora. 0+1=1; 1+2=3; 3-1=2; 2+15=17; 17+9=26
+print (sumatorio)                             # EL segundo parametro ('y') indica el valor individual a sumar
 
 suma100 = reduce(lambda x, y: x + y, range(0,101)) # Se le puede meter un rango para que trabaje sobre el. Un range es una lista igual
 print (suma100)
 
-suma_dobles = reduce(lambda x, y: x + y*2, lista)
+copia_lista = lista [:] # Asi es como se crean las copias de las listas, lo que hagas en esta copia no funciona en la lista original
+copia_lista.insert(0,0) # Agregando los valores neutros para la suma  en la posicion 0 de la funcion lambda. Esto se hace porque el
+                        # reduce tiene problemas y en las iteraciones utiliza lo 2 primeros indices generando errores matematicos, por
+                        # eso se le ajusta el indice para que empieze por 0
+                   
+suma_dobles = reduce(lambda x, y: x + y*2, copia_lista)
 print (suma_dobles)
