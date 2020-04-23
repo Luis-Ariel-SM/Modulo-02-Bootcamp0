@@ -6,6 +6,10 @@ def normal (x): # Paso 3, con la invocacion y el parametro de entrada dada en el
 def cuadrado (x):
     return x * x
 
+def cubo (x):
+    return x**3
+
+
 def suma_todos (limit_to, normal): # Paso 2
     result = 0
     for i in range (limit_to+1): # 2.1 Aqui se activa el 1er parametro de entrada que es 100
@@ -16,4 +20,4 @@ def suma_todos (limit_to, normal): # Paso 2
 
 print (suma_todos(100, normal)) #Paso 1- Se invoca a la funcion suma_todos, El 2do parametro de entrada es la otra funcion nombrada "normal"
 print (suma_todos(3, cuadrado))
-
+print (suma_todos(3, cubo))
