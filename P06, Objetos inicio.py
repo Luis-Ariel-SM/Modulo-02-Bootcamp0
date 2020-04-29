@@ -22,5 +22,33 @@ class Perro (): # Asi se define la clase por convenio, el nombre de la clase (Pe
     def __str__(self):
         return "Perro {}, edad: {}, peso: {}".format(self.nombre, self.edad, self.peso) # Metodo especifico que nos devuelve una cadena cuando hacemos un print de una funcion.
 
+# Herencias y subclases:
 
+class Perro_asistencia(Perro): # Subclase de la clase Perro.
+    def __init__ (self, nombre, edad, peso, amo): # Se define la funcion constructora tipica de esta subclase
+        Perro.__init__(self, nombre, edad, peso)  # Se copia instacia de la clase "padre" para poder ejecutar su funcionalidad
+        self.amo = amo
+        self.trabajando = False
+        
+    def __str__(self):
+        return "Perro de asistencia de {}".format(self.amo) # Aunque tambien herede esta funcion de la clase "padre" habria que mo
+                                                            # dificarla para ajustar el print a la informacion propia de esta, a esto
+                                                            # se le llama: sobreescribir un metodo)
+    def pasear (self):
+        print ("{} ayudo a mi dueño, {} a pasear".format(self.nombre, self.amo))
+        
+    def ladrar(self): # Sobreescribiendo la funcion ladrar
+        if self.trabajando:
+            print("Shhhh, no puedo ladrar")
+        else:
+            Perro.ladrar(self) # Aqui se ha invocado al metodo "padre" para respetar el resultado incial de la misma de tener en cuenta
+                               # el ladrido segun el peso. Se hubiera podido poner un print pero se perderia este detalle
+   
+# Otro ejemplo a tener en cuenta
 
+class Dog():
+    def __init__ (self): # Se puede crear una clase vacia, no es obligatorio definir los atributos de manera privada a la clase inicialmente
+        self.nombre = "" # Aqui si que se tiene que definir los atributos aunque la clase este vacia para que estos existan y luego se les
+        self.edad = None # Va difiniendo el valor
+        self.peso = None
+   

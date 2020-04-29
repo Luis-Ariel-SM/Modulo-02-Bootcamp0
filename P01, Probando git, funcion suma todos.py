@@ -8,7 +8,7 @@ def suma_todos(limit_to):
 
 def suma_todos_cuadrados (limit_to):
     result = 0
-    for i in range (limit_to+1):
+    for i in range (limit_to+1): #En el range si no le pones el valor inicial el asume que empieza desde 0
         result+=i*i
         
     return result
